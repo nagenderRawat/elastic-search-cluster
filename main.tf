@@ -50,6 +50,11 @@ resource "aws_elasticsearch_domain" "es" {
   encrypt_at_rest {
     enabled = var.encrypt_at_rest_enabled
   }
+
+  domain_endpoint_options {
+    enforce_https = true
+  }
+  
   access_policies = <<CONFIG
 {
     "Version": "2012-10-17",
